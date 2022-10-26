@@ -1507,7 +1507,7 @@ dependencies = [
 
 [[package]]
 name = "rusty-snake"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "find_folder",
  "piston_window",

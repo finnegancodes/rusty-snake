@@ -15,6 +15,7 @@ pub const HEIGHT: f64 = 500.;
 
 fn main() {
     println!("------ Snake clone by Finnegan ------");
+    println!("Use [W, A, S, D] to move, [SPACE] to pause, [ESC] to quit.");
 
     let mut window_settings = WindowSettings::new("Rusty Snake", [WIDTH, HEIGHT])
         .exit_on_esc(true);

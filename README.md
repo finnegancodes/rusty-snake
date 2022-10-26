@@ -1,4 +1,4 @@
-# Snake
+# rusty-snake
 
 A crappy snake clone made in Rust.
 

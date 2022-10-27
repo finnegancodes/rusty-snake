@@ -1,6 +1,6 @@
 # rusty-snake
 
-A crappy snake clone made in Rust.
+A crappy snake clone written in Rust.
 
 ![alt text](https://github.com/finnegancodes/rusty-snake/blob/main/game.png?raw=true)
 

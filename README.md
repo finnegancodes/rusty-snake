@@ -16,4 +16,10 @@ Run:
 cargo run
 ```
 
+Set a custom move interval:
+```
+cargo run -- [move interval in seconds]
+```
+Default move interval is 0.2 seconds.
+
 Note: Requires cargo to be installed (duh).

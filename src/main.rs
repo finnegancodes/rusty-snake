@@ -1,24 +1,28 @@
-mod game;
-mod direction;
-mod snake;
 mod apple;
-mod tail;
+mod direction;
+mod game;
 mod hud;
+mod snake;
+mod tail;
 mod text_view;
+
+use std::env;
 
 use piston_window::*;
 
-use crate::{game::Game};
+use crate::game::Game;
 
 pub const WIDTH: f64 = 500.;
 pub const HEIGHT: f64 = 500.;
+pub const MOVE_INTERVAL: f64 = 0.2;
 
 fn main() {
     println!("------ Snake clone by Finnegan ------");
     println!("Use [W, A, S, D] to move, [SPACE] to pause, [ESC] to quit.");
 
-    let mut window_settings = WindowSettings::new("Rusty Snake", [WIDTH, HEIGHT])
-        .exit_on_esc(true);
+    let move_interval = get_move_interval();
+
+    let mut window_settings = WindowSettings::new("Rusty Snake", [WIDTH, HEIGHT]).exit_on_esc(true);
 
     window_settings.set_vsync(true);
 
@@ -34,7 +38,7 @@ fn main() {
         .load_font(assets.join("Arvo-Regular.ttf"))
         .expect("Unable to load font");
 
-    let mut game = Game::new(glyphs);
+    let mut game = Game::new(glyphs, move_interval);
 
     while let Some(event) = window.next() {
         if let Some(Button::Keyboard(key)) = event.press_args() {
@@ -49,4 +53,18 @@ fn main() {
             game.update(args.dt);
         });
     }
+}
+
+fn get_move_interval() -> f64 {
+    let args: Vec<String> = env::args().collect();
+
+    if args.len() < 2 { return MOVE_INTERVAL;} 
+
+    let str = &args[1];
+    let move_interval = str
+        .to_string()
+        .parse::<f64>()
+        .expect("Not a valid move interval");
+
+    return move_interval;
 }

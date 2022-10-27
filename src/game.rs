@@ -14,12 +14,12 @@ pub const APPLE_COLOR: &str = "f7a400";
 
 pub const GRID_SIZE: f64 = 25.;
 pub const BLOCK_WIDTH: f64 = WIDTH / GRID_SIZE;
-pub const MOVE_INTERVAL: f64 = 0.2;
 
 pub struct Game {
     snake: Snake,
     apple: Apple,
     wait_time: f64,
+    move_interval: f64,
     paused: bool,
     dead: bool,
     score: i8,
@@ -27,13 +27,14 @@ pub struct Game {
 }
 
 impl Game {
-    pub fn new(glyphs: Glyphs) -> Game {
+    pub fn new(glyphs: Glyphs, move_interval: f64) -> Game {
         let hud = HUD::new(glyphs);
 
         Game {
             snake: Snake::new(),
             apple: Apple::new(),
             wait_time: 0.,
+            move_interval: move_interval,
             paused: false,
             dead: false,
             score: 0,
@@ -78,7 +79,7 @@ impl Game {
         }
         self.wait_time += dt;
 
-        if self.wait_time >= MOVE_INTERVAL {
+        if self.wait_time >= self.move_interval {
             self.snake.update();
 
             let is_collision = self.snake.check_collision();

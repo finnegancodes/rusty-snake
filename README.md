@@ -16,7 +16,7 @@ Run:
 cargo run
 ```
 
-Set a custom move interval:
+Run with a custom move interval:
 ```
 cargo run -- [move interval in seconds]
 ```

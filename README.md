@@ -2,7 +2,7 @@
 
 A crappy snake clone made in Rust.
 
-![alt text](https://github.com/finnegancodes/rusty-snake/blob/main/game.png?raw=true)
+![alt text](screenshots/game.png)
 
 Use [W, A, S, D] to move, [SPACE] to pause, [ESC] to quit.
 

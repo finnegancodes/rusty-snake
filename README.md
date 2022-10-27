@@ -1,6 +1,6 @@
 # rusty-snake
 
-A crappy snake clone made in Rust.
+A crappy snake clone written in Rust.
 
 ![alt text](screenshots/game.png)
 
@@ -16,7 +16,7 @@ Run:
 cargo run
 ```
 
-Set a custom move interval:
+Run with a custom move interval:
 ```
 cargo run -- [move interval in seconds]
 ```
